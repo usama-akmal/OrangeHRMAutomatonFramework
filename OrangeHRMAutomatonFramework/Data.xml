@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Automation>
+	<Execution>			
+		<LoginWithValidCredentials>
+			<url>https://samaaa-trials77.orangehrmlive.com/</url> 
+			<username>Admin</username>
+			<password>IZOh97Rx@b</password>
+			<successUrl>https://samaaa-trials77.orangehrmlive.com/client/#/dashboard</successUrl>
+			<successTitle>Employee Management</successTitle>
+		</LoginWithValidCredentials>	
+	</Execution>
+</Automation>

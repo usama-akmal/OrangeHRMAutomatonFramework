@@ -29,6 +29,16 @@ namespace OrangeHRMAutomatonFramework
             return await this.page.TitleAsync();
         }
 
+        public string GetUrl()
+        {
+            return this.page.Url;
+        }
+
+        public async Task WaitForUrl(string url)
+        {
+            await this.page.WaitForURLAsync(url);
+        }
+
         public async Task Write(string locator, string text)
         {
             await this.page.Locator(locator).FillAsync(text);
