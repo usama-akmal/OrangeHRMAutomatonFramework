@@ -27,7 +27,7 @@ namespace OrangeHRMAutomatonFramework.DriverCostruction
 
         public void CreateBrowserLaunchOptions()
         {
-            options = new BrowserTypeLaunchOptions() { Headless = false};
+            options = new BrowserTypeLaunchOptions() { Headless = false, Timeout = 60000};
             var headless = ConfigurationManager.AppSettings["Headless"];
             if(headless == "true")
             {

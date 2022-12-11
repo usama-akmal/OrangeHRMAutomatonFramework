@@ -5,23 +5,32 @@
 			<url>/</url> 
 			<username>Admin</username>
 			<password>TP@mR0I1yd</password>
-			<successUrl>client/#/dashboard</successUrl>
+			<successUrl>/client/#/dashboard</successUrl>
 			<successTitle>Employee Management</successTitle>
 		</LoginWithValidCredentials>
 		<LoginWithEmptyCredentials>
 			<url>/</url>
+			<title>OrangeHRM</title>
 			<username></username>
 			<password></password>
+			<usernameError>Username cannot be empty</usernameError>
+			<passwordError>Password cannot be empty</passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithEmptyCredentials>
 			<url>/</url>
+			<title>OrangeHRM</title>
 			<username>Admin</username>
 			<password></password>
+			<usernameError></usernameError>
+			<passwordError>Password cannot be empty</passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithEmptyCredentials>
 			<url>/</url>
+			<title>OrangeHRM</title>
 			<username></username>
 			<password>Admin</password>
+			<usernameError>Username cannot be empty</usernameError>
+			<passwordError></passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithInvalidCredentials>
 			<url>/</url>

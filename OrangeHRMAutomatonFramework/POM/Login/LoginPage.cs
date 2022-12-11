@@ -11,6 +11,8 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         private string usernameLocator = "#txtUsername";
         private string passwordLocator = "#txtPassword";
         private string loginLocator = "#frmLogin > div.button-holder > button";
+        private string usernameErrorLocator = "#txtUsername-error";
+        private string passwordErrorLocator = "#txtPassword-error";
 
         public async Task PerformLogin(string username, string password)
         {
@@ -25,5 +27,10 @@ namespace OrangeHRMAutomatonFramework.POM.Login
             await WaitForUrl(url);
         }
 
+
+        public async Task<string> GetValidationErrorMessage(string type)
+        {
+            return await GetText(type == "username" ? usernameErrorLocator: passwordErrorLocator);
+        }
     }
 }
