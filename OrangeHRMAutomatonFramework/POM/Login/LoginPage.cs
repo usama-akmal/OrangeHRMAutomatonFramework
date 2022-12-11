@@ -12,12 +12,18 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         private string passwordLocator = "#txtPassword";
         private string loginLocator = "#frmLogin > div.button-holder > button";
 
-        public async Task PerformLogin(string username, string password, string url)
+        public async Task PerformLogin(string username, string password)
         {
             await Write(this.usernameLocator, username);
             await Write(this.passwordLocator, password);
             await Click(loginLocator);
+        }
+
+        public async Task PerformLoginAndWaitForUrl(string username, string password, string url)
+        {
+            await this.PerformLogin(username, password);
             await WaitForUrl(url);
         }
+
     }
 }

@@ -2,11 +2,40 @@
 <Automation>
 	<Execution>			
 		<LoginWithValidCredentials>
-			<url>https://samaaa-trials77.orangehrmlive.com/</url> 
+			<url>/</url> 
 			<username>Admin</username>
-			<password>IZOh97Rx@b</password>
-			<successUrl>https://samaaa-trials77.orangehrmlive.com/client/#/dashboard</successUrl>
+			<password>TP@mR0I1yd</password>
+			<successUrl>client/#/dashboard</successUrl>
 			<successTitle>Employee Management</successTitle>
-		</LoginWithValidCredentials>	
+		</LoginWithValidCredentials>
+		<LoginWithEmptyCredentials>
+			<url>/</url>
+			<username></username>
+			<password></password>
+		</LoginWithEmptyCredentials>
+		<LoginWithEmptyCredentials>
+			<url>/</url>
+			<username>Admin</username>
+			<password></password>
+		</LoginWithEmptyCredentials>
+		<LoginWithEmptyCredentials>
+			<url>/</url>
+			<username></username>
+			<password>Admin</password>
+		</LoginWithEmptyCredentials>
+		<LoginWithInvalidCredentials>
+			<url>/</url>
+			<username>XYxxx</username>
+			<password>Admin</password>
+			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
+			<errorMessage>Employee Management</errorMessage>
+		</LoginWithInvalidCredentials>
+		<LoginWithInvalidCredentials>
+			<url>/</url>
+			<username>Admin</username>
+			<password>Admin</password>
+			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
+			<errorMessage>Employee Management</errorMessage>
+		</LoginWithInvalidCredentials>
 	</Execution>
 </Automation>
