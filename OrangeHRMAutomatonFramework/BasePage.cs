@@ -70,9 +70,12 @@ namespace OrangeHRMAutomatonFramework
             await this.page.WaitForLoadStateAsync();
         }
 
-        public async Task TakeScreenshot(string path)
+        public async Task<string> TakeScreenshot(string directory)
         {
-            await this.page.ScreenshotAsync(new PageScreenshotOptions() { Path = path });
+            string path = @"Screenshots\" + DateTime.Now.ToFileTimeUtc() + ".png";
+            string completePath = directory + path;
+            await this.page.ScreenshotAsync(new PageScreenshotOptions() { Path = completePath });
+            return path;
         }
 
         public async Task PerformLogout()

@@ -458,7 +458,6 @@
     <Compile Include="POM\Login\LoginPage.cs" />
     <Compile Include="POM\Login\LoginTC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReporterSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

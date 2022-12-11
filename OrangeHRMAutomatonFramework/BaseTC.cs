@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Configuration;
 
 namespace OrangeHRMAutomatonFramework
 {
+    [TestClass]
     public class BaseTC
     {
         private TestContext instance;
@@ -19,6 +21,21 @@ namespace OrangeHRMAutomatonFramework
             get { return instance; }
         }
 
-       
+        public static ExtentReports extent;
+        protected static string reportsDirectory = ConfigurationManager.AppSettings["ReportsDirectory"] + DateTime.Now.ToString("_MMddyyyy_hhmmtt") + @"\";
+
+        [AssemblyInitialize]
+        public static void Initialize(TestContext testContext)
+        {
+            extent = new ExtentReports();
+            var htmlreporter = new ExtentHtmlReporter(reportsDirectory);
+            extent.AttachReporter(htmlreporter);
+        }
+
+        [AssemblyCleanup]
+        public static void Cleanup()
+        {
+            extent.Flush();
+        }
     }
 }

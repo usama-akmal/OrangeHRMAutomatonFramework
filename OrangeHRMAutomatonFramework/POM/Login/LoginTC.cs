@@ -52,7 +52,7 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Data.xml", "LoginWithEmptyCredentials", DataAccessMethod.Sequential)]
         public async Task LoginWithEmptyCredentials()
         {
-            var logger = ReporterSingleton.GetInstance().CreateTest("T0001", "Login Without Credentials");
+            var test = extent.CreateTest("T0001", "Login Without Credentials");
             string url = TestContext.DataRow["url"].ToString();
             string username = TestContext.DataRow["username"].ToString();
             string usernameError = TestContext.DataRow["usernameError"].ToString();
@@ -60,28 +60,31 @@ namespace OrangeHRMAutomatonFramework.POM.Login
             string passwordError = TestContext.DataRow["passwordError"].ToString();
             string title = TestContext.DataRow["title"].ToString();
 
-            logger.Log(Status.Info, "Data Loaded");
+            test.Log(Status.Info, "Data Loaded");
             LoginPage loginPage = new LoginPage();
             await loginPage.GoToUrl(url);
-            logger.Log(Status.Info, "Go To Url");
+            test.Log(Status.Info, "Go To Url");
             await loginPage.PerformLogin(username, password);
-            logger.Log(Status.Info, "Perform Login");
+            test.Log(Status.Info, "Perform Login");
             if(username == "")
             {
                 Assert.AreEqual(usernameError, await loginPage.GetValidationErrorMessage("username"));
-                logger.Log(Status.Pass, "Username Error Visible");
+                test.Log(Status.Pass, "Username Error Visible");
             }
 
             if(password == "")
             {
                 Assert.AreEqual(passwordError, await loginPage.GetValidationErrorMessage("password"));
-                logger.Log(Status.Pass, "Password Error Visible");
+                test.Log(Status.Pass, "Password Error Visible");
             }
 
-            Assert.AreEqual(title, await loginPage.GetTitle());
-            logger.Log(Status.Pass, "Correct Title Visible");
+            string path = await loginPage.TakeScreenshot(reportsDirectory);
 
-            ReporterSingleton.GetInstance().Flush();
+            test.AddScreenCaptureFromPath(path);
+           
+            Assert.AreEqual(title, await loginPage.GetTitle());
+            test.Log(Status.Pass, "Correct Title Visible");
+
         }
     }
 }
