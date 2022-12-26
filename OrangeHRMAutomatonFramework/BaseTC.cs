@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Configuration;
+using OrangeHRMAutomatonFramework.Logger;
 
 namespace OrangeHRMAutomatonFramework
 {
@@ -20,22 +21,17 @@ namespace OrangeHRMAutomatonFramework
             set { instance = value; }
             get { return instance; }
         }
-
-        public static ExtentReports extent;
-        protected static string reportsDirectory = ConfigurationManager.AppSettings["ReportsDirectory"] + DateTime.Now.ToString("_MMddyyyy_hhmmtt") + @"\";
-
+        
         [AssemblyInitialize]
         public static void Initialize(TestContext testContext)
         {
-            extent = new ExtentReports();
-            var htmlreporter = new ExtentHtmlReporter(reportsDirectory);
-            extent.AttachReporter(htmlreporter);
+            Log.Initialize();
         }
 
         [AssemblyCleanup]
         public static void Cleanup()
         {
-            extent.Flush();
+            Log.Flush();
         }
     }
 }

@@ -450,11 +450,14 @@
   <ItemGroup>
     <Compile Include="BasePage.cs" />
     <Compile Include="BaseTC.cs" />
-    <Compile Include="DriverCostruction\BrowserBuilder.cs" />
-    <Compile Include="DriverCostruction\BrowserManager.cs" />
-    <Compile Include="DriverCostruction\ChromeBuilder.cs" />
-    <Compile Include="DriverCostruction\IBrowserBuilder.cs" />
-    <Compile Include="DriverCostruction\PlaywrightSingleton.cs" />
+    <Compile Include="DriverConstruction\BrowserBuilder.cs" />
+    <Compile Include="DriverConstruction\BrowserManager.cs" />
+    <Compile Include="DriverConstruction\ChromeBuilder.cs" />
+    <Compile Include="DriverConstruction\IBrowserBuilder.cs" />
+    <Compile Include="DriverConstruction\PlaywrightSingleton.cs" />
+    <Compile Include="Logger\Log.cs" />
+    <Compile Include="OHRMTestMethod.cs" />
+    <Compile Include="POM\Login\LoginLocators.cs" />
     <Compile Include="POM\Login\LoginPage.cs" />
     <Compile Include="POM\Login\LoginTC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

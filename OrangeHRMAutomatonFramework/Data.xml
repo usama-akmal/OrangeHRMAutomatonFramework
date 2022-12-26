@@ -37,14 +37,14 @@
 			<username>XYxxx</username>
 			<password>Admin</password>
 			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
-			<errorMessage>Employee Management</errorMessage>
+			<invalidTitle>OrangeHRM</invalidTitle>
 		</LoginWithInvalidCredentials>
 		<LoginWithInvalidCredentials>
 			<url>/</url>
 			<username>Admin</username>
 			<password>Admin</password>
 			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
-			<errorMessage>Employee Management</errorMessage>
+			<invalidTitle>OrangeHRM</invalidTitle>
 		</LoginWithInvalidCredentials>
 	</Execution>
 </Automation>

@@ -12,6 +12,7 @@ namespace OrangeHRMAutomatonFramework.DriverCostruction
     {
         public IPage page;
         public IBrowser browser;
+        public IBrowserContext context;
         private BrowserTypeLaunchOptions options;
         private IPlaywright playwright;
         public ChromeBuilder(IPlaywright playwright)
@@ -22,7 +23,8 @@ namespace OrangeHRMAutomatonFramework.DriverCostruction
         public async Task LaunchBrowserAsync()
         {
             this.browser = await playwright.Chromium.LaunchAsync(this.options);
-            this.page = await this.browser.NewPageAsync();
+            this.context = await this.browser.NewContextAsync();
+            this.page = await this.context.NewPageAsync();
         }
 
         public void CreateBrowserLaunchOptions()
