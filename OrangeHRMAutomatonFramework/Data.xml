@@ -34,7 +34,7 @@
 		</LoginWithEmptyCredentials>
 		<LoginWithInvalidCredentials>
 			<url>/</url>
-			<username>XYxxx</username>
+			<username>Random</username>
 			<password>Admin</password>
 			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
 			<invalidTitle>OrangeHRM</invalidTitle>

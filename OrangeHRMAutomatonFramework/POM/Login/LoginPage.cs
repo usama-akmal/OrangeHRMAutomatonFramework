@@ -9,9 +9,21 @@ namespace OrangeHRMAutomatonFramework.POM.Login
 {
     internal class LoginPage : BasePage
     {
+        private string loginPath = "/auth/login";
+
+        public async Task Open()
+        {
+            Log.Info("LoginPage.Open started", await TakeScreenshot(Log.reportsDirectory));
+            await GoToUrl(loginPath);
+            await WaitForUrl(loginPath);
+            Log.Info("LoginPage.Open completed", await TakeScreenshot(Log.reportsDirectory));
+        }
+
         public async Task PerformLogin(string username, string password)
         {
             Log.Info("LoginPage.PerformLogin started", await TakeScreenshot(Log.reportsDirectory));
+            await ClearCookies();
+            await Open();
             await Write(LoginLocators.usernameLocator, username);
             await Write(LoginLocators.passwordLocator, password);
             await Click(LoginLocators.loginLocator);
@@ -21,7 +33,7 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         public async Task PerformLoginAndWaitForUrl(string username, string password, string url)
         {
             Log.Info("LoginPage.PerformLoginAndWaitForUrl started");
-            await this.PerformLogin(username, password);
+            await PerformLogin(username, password);
             await WaitForUrl(url);
             Log.Info("LoginPage.PerformLoginAndWaitForUrl completed");
         }

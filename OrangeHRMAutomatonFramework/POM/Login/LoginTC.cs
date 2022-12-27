@@ -19,13 +19,13 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         public async Task LoginWithValidCredentials()
         {
             Log.CreateTest("T0001", "Login With Valid Credentials");
-            string url = TestContext.DataRow["url"].ToString();
             string username = TestContext.DataRow["username"].ToString();
             string password = TestContext.DataRow["password"].ToString();
             string successUrl = TestContext.DataRow["successUrl"].ToString();
             string successTitle = TestContext.DataRow["successTitle"].ToString();
+
+            Log.Info("Data Loaded");
             LoginPage loginPage = new LoginPage();
-            await loginPage.GoToUrl(url);
             await loginPage.PerformLoginAndWaitForUrl(username, password, successUrl);
 
             Assert.AreEqual(successUrl, loginPage.GetUrl());
@@ -47,14 +47,12 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         public async Task LoginWithInvalidCredentials()
         {
             Log.CreateTest("T0002", "Login With Invalid Credentials");
-            string url = TestContext.DataRow["url"].ToString();
             string username = TestContext.DataRow["username"].ToString();
             string password = TestContext.DataRow["password"].ToString();
             string invalidUrl = TestContext.DataRow["invalidUrl"].ToString();
             string invalidTitle = TestContext.DataRow["invalidTitle"].ToString();
             Log.Info("Data Loaded");
             LoginPage loginPage = new LoginPage();
-            await loginPage.GoToUrl(url);
             await loginPage.PerformLoginAndWaitForUrl(username, password, invalidUrl);
 
             Assert.AreEqual(invalidUrl, loginPage.GetUrl());
@@ -76,7 +74,6 @@ namespace OrangeHRMAutomatonFramework.POM.Login
         {
             
             Log.CreateTest("T0003", "Login Without Credentials");
-            string url = TestContext.DataRow["url"].ToString();
             string username = TestContext.DataRow["username"].ToString();
             string usernameError = TestContext.DataRow["usernameError"].ToString();
             string password = TestContext.DataRow["password"].ToString();
@@ -85,7 +82,6 @@ namespace OrangeHRMAutomatonFramework.POM.Login
 
             Log.Info("Data Loaded");
             LoginPage loginPage = new LoginPage();
-            await loginPage.GoToUrl(url);
             await loginPage.PerformLogin(username, password);
                 
             if (username == "")

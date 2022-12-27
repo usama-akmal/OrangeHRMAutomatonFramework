@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using OrangeHRMAutomatonFramework.Logger;
 using System.Security.Cryptography;
+using Microsoft.CodeAnalysis;
 
 namespace OrangeHRMAutomatonFramework
 {
@@ -33,59 +34,69 @@ namespace OrangeHRMAutomatonFramework
 
         public async Task GoToUrl(string path)
         {
-            Log.Info("GoToUrl called with path " + webBaseUrl + path);
+            Log.Info($"GoToUrl called with Endpoint[{webBaseUrl + path}]");
             await this.page.GotoAsync(webBaseUrl + path);
+            await WaitForUrl(path);
         }
 
         public async Task<string> GetTitle()
         {
-            Log.Info("BasePage.GetTitle called");
-            return await this.page.TitleAsync();
+            var title = await this.page.TitleAsync();
+            Log.Info($"BasePage.GetTitle called and Title[{title}]");
+            return title;
         }
 
         public string GetUrl()
         {
-            Log.Info("BasePage.GetUrl called");
-            return this.page.Url.Substring(42);
+            var url = this.page.Url.Substring(42);
+            Log.Info($"BasePage.GetUrl called and current URL[{url}]");
+            return url;
         }
 
         public async Task WaitForUrl(string path)
         {
-            Log.Info("BasePage.WaitForUrl called " + webBaseUrl + path);
             await this.page.WaitForURLAsync(webBaseUrl + path);
+            Log.Info($"BasePage.WaitForUrl called Endpoint[{webBaseUrl + path}]");
         }
 
         private ILocator FindLocator(string locator)
         {
-            Log.Info("BasePage.FindLocator called " + locator);
+            Log.Info($"BasePage.FindLocator called with Locator[{locator}]");
             return this.page.Locator(locator);
         }
 
         public async Task Write(string locator, string text)
         {
-            Log.Info("BasePage.Write called " + locator);
             await FindLocator(locator).FillAsync(text);
+            Log.Info($"BasePage.Write called on Locator[{locator}] and entered Value[{text}]");
         }
 
         public async Task<string> GetText(string locator)
         {
-            Log.Info("BasePage.GetText called with locator " + locator);
-            return await FindLocator(locator).TextContentAsync();
+            var content = await FindLocator(locator).TextContentAsync();
+            Log.Info($"BasePage.GetText called on Locator[{locator}] and found Content[{content}]");
+            return content;
         }
 
         public async Task Click(string locator)
         {
-            Log.Info("BasePage.Click called with locator " + locator);
             await this.page.ClickAsync(locator);
+            await WaitForLoadState();
+            Log.Info($"BasePage.Click called on Locator[{locator}]");
+        }
+
+        public async Task WaitForLoadState()
+        {
             await this.page.WaitForLoadStateAsync();
+            Log.Info("BasePage.WaitForLoadState called");
         }
 
         public async Task<string> TakeScreenshot(string directory)
         {
-            Log.Info("BasePage.TakeScreenshot called");
             string path = @"Screenshots\" + DateTime.Now.ToFileTimeUtc() + ".png";
             string completePath = directory + path;
             await this.page.ScreenshotAsync(new PageScreenshotOptions() { Path = completePath });
+            Log.Info($"BasePage.TakeScreenshot called and screenshot saved at Path[{completePath}]");
             return path;
         }
 
@@ -93,6 +104,11 @@ namespace OrangeHRMAutomatonFramework
         {
             Log.Info("BasePage.PerformLogout called");
             await Click(logoutLocator);
+        }
+        public async Task ClearCookies()
+        {
+            await this.page.Context.ClearCookiesAsync();
+            Log.Info("BasePage.ClearCookies called");
         }
     }
 }
