@@ -460,6 +460,9 @@
     <Compile Include="POM\Login\LoginLocators.cs" />
     <Compile Include="POM\Login\LoginPage.cs" />
     <Compile Include="POM\Login\LoginTC.cs" />
+    <Compile Include="POM\Sidebar\SidebarLocators.cs" />
+    <Compile Include="POM\Sidebar\SidebarPage.cs" />
+    <Compile Include="POM\Sidebar\SidebarTC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

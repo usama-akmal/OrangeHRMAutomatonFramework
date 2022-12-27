@@ -2,14 +2,12 @@
 <Automation>
 	<Execution>			
 		<LoginWithValidCredentials>
-			<url>/</url> 
 			<username>Admin</username>
 			<password>TP@mR0I1yd</password>
 			<successUrl>/client/#/dashboard</successUrl>
 			<successTitle>Employee Management</successTitle>
 		</LoginWithValidCredentials>
 		<LoginWithEmptyCredentials>
-			<url>/</url>
 			<title>OrangeHRM</title>
 			<username></username>
 			<password></password>
@@ -17,7 +15,6 @@
 			<passwordError>Password cannot be empty</passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithEmptyCredentials>
-			<url>/</url>
 			<title>OrangeHRM</title>
 			<username>Admin</username>
 			<password></password>
@@ -25,7 +22,6 @@
 			<passwordError>Password cannot be empty</passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithEmptyCredentials>
-			<url>/</url>
 			<title>OrangeHRM</title>
 			<username></username>
 			<password>Admin</password>
@@ -33,18 +29,22 @@
 			<passwordError></passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithInvalidCredentials>
-			<url>/</url>
 			<username>Random</username>
 			<password>Admin</password>
 			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
 			<invalidTitle>OrangeHRM</invalidTitle>
 		</LoginWithInvalidCredentials>
 		<LoginWithInvalidCredentials>
-			<url>/</url>
 			<username>Admin</username>
 			<password>Admin</password>
 			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
 			<invalidTitle>OrangeHRM</invalidTitle>
 		</LoginWithInvalidCredentials>
+		<OpenHRManagment>
+			<username>Admin</username>
+			<password>TP@mR0I1yd</password>
+			<successUrl>/client/#/admin/systemUsers</successUrl>
+			<successTitle>HR Administration</successTitle>
+		</OpenHRManagment>
 	</Execution>
 </Automation>
