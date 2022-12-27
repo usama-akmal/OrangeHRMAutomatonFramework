@@ -20,12 +20,22 @@ namespace OrangeHRMAutomatonFramework.POM.Sidebar
             Log.Info("SidebarPage.Open completed", await TakeScreenshot(Log.reportsDirectory));
         }
 
-        public async Task GoToHRManagment()
+        public async Task GoToModule(string module)
         {
-            Log.Info("SidebarPage.GoToHRManagment started", await TakeScreenshot(Log.reportsDirectory));
+            Log.Info($"SidebarPage.GoToModule started with module {module}", await TakeScreenshot(Log.reportsDirectory));
             await Open();
-            await Click(SidebarLocators.hrManagement);
-            Log.Info("SidebarPage.GoToHRManagment completed", await TakeScreenshot(Log.reportsDirectory));
+            if (module == "HR Administration")
+            {
+                await Click(SidebarLocators.hrManagement);
+            }
+            else if (module == "Employee Management")
+            {
+                await Click(SidebarLocators.employeeManagment);
+            }
+            
+            Log.Info($"SidebarPage.GoToModule completed with module {module}", await TakeScreenshot(Log.reportsDirectory));
         }
+
+
     }
 }

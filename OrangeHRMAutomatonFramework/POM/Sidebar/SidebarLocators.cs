@@ -9,5 +9,6 @@ namespace OrangeHRMAutomatonFramework.POM.Sidebar
     public class SidebarLocators
     {
         public static string hrManagement = "#menu_item_81 > span";
+        public static string employeeManagment = "#menu_item_37 > span";
     }
 }

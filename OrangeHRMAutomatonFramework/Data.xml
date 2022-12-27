@@ -29,7 +29,7 @@
 			<passwordError></passwordError>
 		</LoginWithEmptyCredentials>
 		<LoginWithInvalidCredentials>
-			<username>Random</username>
+			<username>AnotherOne</username>
 			<password>Admin</password>
 			<invalidUrl>/securityAuthentication/retryLogin</invalidUrl>
 			<invalidTitle>OrangeHRM</invalidTitle>
@@ -45,6 +45,12 @@
 			<password>TP@mR0I1yd</password>
 			<successUrl>/client/#/admin/systemUsers</successUrl>
 			<successTitle>HR Administration</successTitle>
+		</OpenHRManagment>
+		<OpenHRManagment>
+			<username>Admin</username>
+			<password>TP@mR0I1yd</password>
+			<successUrl>/client/#/pim/employees</successUrl>
+			<successTitle>Employee Management</successTitle>
 		</OpenHRManagment>
 	</Execution>
 </Automation>
