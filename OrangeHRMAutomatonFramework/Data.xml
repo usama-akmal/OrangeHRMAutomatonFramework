@@ -53,6 +53,8 @@
 			<successTitle>Employee Management</successTitle>
 		</OpenHRManagment>
 		<AddEmployee>
+			<username>Admin</username>
+			<password>TP@mR0I1yd</password>
 			<image>D:\image.jpg</image>
 			<firstName>Salman</firstName>
 			<middleName>Muhammad</middleName>

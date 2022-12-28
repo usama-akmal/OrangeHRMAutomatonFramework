@@ -65,9 +65,9 @@ namespace OrangeHRMAutomatonFramework
             return this.page.Locator(locator);
         }
 
-        public async Task Write(string locator, string text)
+        public async Task Write(string locator, string text, bool forced = false)
         {
-            await FindLocator(locator).FillAsync(text);
+            await FindLocator(locator).FillAsync(text, new LocatorFillOptions() { Force = forced });
             Log.Info($"BasePage.Write called on Locator[{locator}] and entered Value[{text}]");
         }
 
@@ -87,7 +87,7 @@ namespace OrangeHRMAutomatonFramework
 
         public async Task Click(string locator, string text)
         {
-            await FindLocator(locator).Filter(new LocatorFilterOptions() { HasText = text}).ClickAsync();
+            await FindLocator(locator).Filter(new LocatorFilterOptions() { HasText = text }).ClickAsync();
             Log.Info($"BasePage.Click called on Locator[{locator}] with Text[{text}]");
         }
 
@@ -115,6 +115,15 @@ namespace OrangeHRMAutomatonFramework
         {
             await this.page.Context.ClearCookiesAsync();
             Log.Info("BasePage.ClearCookies called");
+        }
+
+        public async Task ChooseFile(string locator, string file)
+        {
+            var fileChooser = await page.RunAndWaitForFileChooserAsync(async () =>
+            {
+                await FindLocator(locator).ClickAsync();
+            });
+            await fileChooser.SetFilesAsync(file);
         }
     }
 }
