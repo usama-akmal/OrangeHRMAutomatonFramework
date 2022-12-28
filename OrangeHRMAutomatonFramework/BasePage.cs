@@ -85,6 +85,12 @@ namespace OrangeHRMAutomatonFramework
             Log.Info($"BasePage.Click called on Locator[{locator}]");
         }
 
+        public async Task Click(string locator, string text)
+        {
+            await FindLocator(locator).Filter(new LocatorFilterOptions() { HasText = text}).ClickAsync();
+            Log.Info($"BasePage.Click called on Locator[{locator}] with Text[{text}]");
+        }
+
         public async Task WaitForLoadState()
         {
             await this.page.WaitForLoadStateAsync();
