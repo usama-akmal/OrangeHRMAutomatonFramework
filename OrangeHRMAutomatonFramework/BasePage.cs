@@ -124,6 +124,7 @@ namespace OrangeHRMAutomatonFramework
                 await FindLocator(locator).ClickAsync();
             });
             await fileChooser.SetFilesAsync(file);
+            Log.Info($"BasePage.ChooseFile called on Locator[{locator}] with File[{file}]");
         }
     }
 }
