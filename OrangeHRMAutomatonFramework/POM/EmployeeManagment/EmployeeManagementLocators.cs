@@ -41,6 +41,8 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
         public static string wizardWorkShiftItemsInDropdown = "#bs-select-44 > ul > li > a > span";
         public static string wizardCommentsInput = "#comment";
         public static string wizardIncludeEmployeeContractDetailsSwitch = "#has_contract_details";
+        public static string wizardContractStartDate = "#contract_start_date";
+        public static string wizardContractEndDate = "#contract_end_date";
         public static string wizardRegionDropdown = "[data-id='9']";
         public static string wizardRegionItemsInDropdown = "#bs-select-46 > ul > li > a > span";
         public static string wizardFTEDropdown = "[data-id='10']";
