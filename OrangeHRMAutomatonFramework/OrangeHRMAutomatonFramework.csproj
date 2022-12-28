@@ -457,6 +457,10 @@
     <Compile Include="DriverConstruction\PlaywrightSingleton.cs" />
     <Compile Include="Logger\Log.cs" />
     <Compile Include="OHRMTestMethod.cs" />
+    <Compile Include="POM\EmployeeManagment\EmployeeDTO.cs" />
+    <Compile Include="POM\EmployeeManagment\EmployeeManagementLocators.cs" />
+    <Compile Include="POM\EmployeeManagment\EmployeeManagementTC.cs" />
+    <Compile Include="POM\EmployeeManagment\EmployeeManagementPage.cs" />
     <Compile Include="POM\HRManagement\HRManagementLocators.cs" />
     <Compile Include="POM\HRManagement\HRManagementPage.cs" />
     <Compile Include="POM\HRManagement\HRManagemnetTC.cs" />
