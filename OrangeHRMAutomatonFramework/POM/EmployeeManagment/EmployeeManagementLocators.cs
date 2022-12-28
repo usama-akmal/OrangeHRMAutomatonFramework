@@ -51,5 +51,6 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
         public static string wizardTempDepartmentDropdown = "[data-id='11']";
         public static string wizardTempDepartmentItemsInDropdown = "#bs-select-10 > ul > li > a > span";
         public static string wizardSaveButton = "#wizard-nav-button-section > button:nth-child(3)";
+        public static string nameInNavbarAfterSave = "#topbar > ul.topbar-title > li.page-title.tooltipped.title3 > div";
     }
 }

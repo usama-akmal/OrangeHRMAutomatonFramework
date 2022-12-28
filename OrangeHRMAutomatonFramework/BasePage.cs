@@ -134,15 +134,15 @@ namespace OrangeHRMAutomatonFramework
             Log.Info($"BasePage.ChooseFile called on Locator[{locator}] with File[{file}]");
         }
 
-        public async Task Check(string locator)
+        public async Task Check(string locator, bool forced = false)
         {
-            await FindLocator(locator).CheckAsync();
+            await FindLocator(locator).CheckAsync(new LocatorCheckOptions() { Force = forced});
             Log.Info("BasePage.Check called on Locator[{locator}]");
         }
 
-        public async Task Uncheck(string locator)
+        public async Task Uncheck(string locator, bool forced = false)
         {
-            await FindLocator(locator).UncheckAsync();
+            await FindLocator(locator).UncheckAsync(new LocatorUncheckOptions() { Force = forced });
             Log.Info("BasePage.Uncheck called on Locator[{locator}]");
         }
     }

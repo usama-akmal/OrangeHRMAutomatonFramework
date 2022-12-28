@@ -1,5 +1,7 @@
-﻿using OrangeHRMAutomatonFramework.Logger;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OrangeHRMAutomatonFramework.Logger;
 using OrangeHRMAutomatonFramework.POM.Login;
+using OrangeHRMAutomatonFramework.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
     internal class EmployeeManagementPage: BasePage
     {
         private string employeeManagementPath = "/client/#/pim/employees";
+        private string savedSuccessUrl = "/client/#/pim/employees/[empId]/personal_details";
 
         public async Task Open()
         {
@@ -29,7 +32,6 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Write(EmployeeManagementLocators.popupFirstNameInput, employee.firstName);
             await Write(EmployeeManagementLocators.popupMiddleNameInput, employee.middleName);
             await Write(EmployeeManagementLocators.popupLastNameInput, employee.lastName);
-            employee.employeeId = await GetText(EmployeeManagementLocators.popupEmployeeId);
             await Write(EmployeeManagementLocators.popupJoinedDateInput, employee.joinedDate);
             await Click(EmployeeManagementLocators.popupLocationDropdown);
             await Click(EmployeeManagementLocators.popupLocationItemsInDropdown, employee.location);
@@ -58,13 +60,13 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Write(EmployeeManagementLocators.wizardCommentsInput, employee.comments);
             if(employee.includeContractDetails)
             {
-                await Check(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch);
+                await Check(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch, true);
                 await Write(EmployeeManagementLocators.wizardContractStartDate, employee.contractStartDate);
                 await Write(EmployeeManagementLocators.wizardContractEndDate, employee.contractEndDate);
             } 
             else
             {
-                await Uncheck(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch);
+                await Uncheck(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch, true);
             }
             await Click(EmployeeManagementLocators.wizardRegionDropdown);
             await Click(EmployeeManagementLocators.wizardRegionItemsInDropdown, employee.region);
@@ -73,6 +75,14 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Click(EmployeeManagementLocators.wizardTempDepartmentDropdown);
             await Click(EmployeeManagementLocators.wizardTempDepartmentItemsInDropdown, employee.temporartDepartment);
             await Click(EmployeeManagementLocators.wizardSaveButton);
+
+            // await WaitForUrl(savedSuccessUrl.Replace("[empId]", empId));
+            await WaitForLoadState();
+            
+            string title = await GetText(EmployeeManagementLocators.nameInNavbarAfterSave);
+
+            Assert.AreEqual($"{employee.firstName} {employee.lastName}", title);
+
             Log.Info("EmployeeManagrmentPage.AddEmpoyee completed", await TakeScreenshot(Log.reportsDirectory));
         }
 

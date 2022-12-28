@@ -52,7 +52,7 @@
 			<successUrl>/client/#/pim/employees</successUrl>
 			<successTitle>Employee Management</successTitle>
 		</OpenHRManagment>
-		<AddEmployee>
+		<!--<AddEmployee>
 			<username>Admin</username>
 			<password>TP@mR0I1yd</password>
 			<image>D:\image.jpg</image>
@@ -80,7 +80,7 @@
 			<region>Region-1</region>
 			<fte>0.75</fte>
 			<temporartDepartment>Sub unit-3</temporartDepartment>
-		</AddEmployee>
+		</AddEmployee>-->
 		<AddEmployee>
 			<username>Admin</username>
 			<password>TP@mR0I1yd</password>
