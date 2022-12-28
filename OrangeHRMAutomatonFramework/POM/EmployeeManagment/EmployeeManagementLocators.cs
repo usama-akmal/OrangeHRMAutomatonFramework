@@ -10,6 +10,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
     {
         public static string addEmployeeButton = "#addEmployeeButton > i";
         public static string popupTitle = "#modal-holder > div > div > div > div.modal-header > span > h5";
+        public static string popupImage = "#employeePicture";
         public static string popupFirstNameInput = "#first-name-box";
         public static string popupMiddleNameInput = "#middle-name-box";
         public static string popupLastNameInput = "#last-name-box";
