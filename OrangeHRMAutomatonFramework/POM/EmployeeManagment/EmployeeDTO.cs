@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
@@ -74,11 +75,11 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             }
         }
 
-        public string gender
+        public Regex gender
         {
             get
             {
-                return TestContext.DataRow["gender"].ToString();
+                return new Regex(TestContext.DataRow["gender"].ToString());
             }
         }
 
@@ -114,11 +115,11 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             }
         }
 
-        public string jobTitle
+        public Regex jobTitle
         {
             get
             {
-                return TestContext.DataRow["jobTitle"].ToString();
+                return new Regex(TestContext.DataRow["jobTitle"].ToString());
             }
         }
 
@@ -138,11 +139,11 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             }
         }
 
-        public string subUnit
+        public Regex subUnit
         {
             get
             {
-                return TestContext.DataRow["subUnit"].ToString();
+                return new Regex(TestContext.DataRow["subUnit"].ToString());
             }
         }
 

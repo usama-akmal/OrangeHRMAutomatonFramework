@@ -26,7 +26,6 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Open();
             await Click(EmployeeManagementLocators.addEmployeeButton);
             await ChooseFile(EmployeeManagementLocators.popupImage, employee.image);
-            // await Write(EmployeeManagementLocators.popupImage, employee.image, true);
             await Write(EmployeeManagementLocators.popupFirstNameInput, employee.firstName);
             await Write(EmployeeManagementLocators.popupMiddleNameInput, employee.middleName);
             await Write(EmployeeManagementLocators.popupLastNameInput, employee.lastName);
@@ -39,7 +38,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Click(EmployeeManagementLocators.wizardMartialStatusDropdown);
             await Click(EmployeeManagementLocators.wizardMartialStatusItemsInDropdown, employee.maritalStatus);
             await Click(EmployeeManagementLocators.wizardGenderDropdown);
-            // await Click(EmployeeManagementLocators.wizardGenderItemsInDropdown, employee.gender);
+            await Click(EmployeeManagementLocators.wizardGenderItemsInDropdown, employee.gender);
             await Click(EmployeeManagementLocators.wizardNationalityDropdown);
             await Click(EmployeeManagementLocators.wizardNationalityItemsInDropdown, employee.nationality);
             await Write(EmployeeManagementLocators.wizardDriverLicenseNumberInput, employee.drivingLicenseNumber);
@@ -53,18 +52,19 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Click(EmployeeManagementLocators.wizardJobCategoryDropdown);
             await Click(EmployeeManagementLocators.wizardJobCategoryItemsInDropdown, employee.jobCategory);
             await Click(EmployeeManagementLocators.wizardSubUnitDropdown);
-            // await Click(EmployeeManagementLocators.wizardSubUnitItemsInDropdown, employee.subUnit);
+            await Click(EmployeeManagementLocators.wizardSubUnitItemsInDropdown, employee.subUnit);
             await Click(EmployeeManagementLocators.wizardWorkShiftDropdown);
             await Click(EmployeeManagementLocators.wizardWorkShiftItemsInDropdown, employee.workShift);
             await Write(EmployeeManagementLocators.wizardCommentsInput, employee.comments);
             if(employee.includeContractDetails)
             {
+                await Check(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch);
                 await Write(EmployeeManagementLocators.wizardContractStartDate, employee.contractStartDate);
                 await Write(EmployeeManagementLocators.wizardContractEndDate, employee.contractEndDate);
             } 
             else
             {
-                await Click(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch);
+                await Uncheck(EmployeeManagementLocators.wizardIncludeEmployeeContractDetailsSwitch);
             }
             await Click(EmployeeManagementLocators.wizardRegionDropdown);
             await Click(EmployeeManagementLocators.wizardRegionItemsInDropdown, employee.region);

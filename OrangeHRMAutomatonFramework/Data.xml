@@ -71,12 +71,41 @@
 			<jobTitle>Brand Manager</jobTitle>
 			<employementStatus>Full-Time Permanent</employementStatus>
 			<jobCategory>Officials and Managers</jobCategory>
-			<subUnit>Development Team</subUnit>
+			<subUnit>^Development\sTeam$</subUnit>
 			<workShift>General</workShift>
 			<comments>No comments</comments>
 			<includeContractDetails>true</includeContractDetails>
 			<contractStartDate>Wed, 28 Dec 2022</contractStartDate>
 			<contractEndDate>Tue, 28 Dec 2049</contractEndDate>
+			<region>Region-1</region>
+			<fte>0.75</fte>
+			<temporartDepartment>Sub unit-3</temporartDepartment>
+		</AddEmployee>
+		<AddEmployee>
+			<username>Admin</username>
+			<password>TP@mR0I1yd</password>
+			<image>D:\image.jpg</image>
+			<firstName>Usama</firstName>
+			<middleName>Akmal</middleName>
+			<lastName>Hussain</lastName>
+			<joinedDate>Thu, 28 Dec 2000</joinedDate>
+			<location>Mexico Office</location>
+			<dateOfBirth>Mon, 04 Dec 2000</dateOfBirth>
+			<maritalStatus>Single</maritalStatus>
+			<gender>Male</gender>
+			<nationality>Pakistani</nationality>
+			<drivingLicenseNumber>1234567890</drivingLicenseNumber>
+			<licenseExpiryDate>Fri, 30 Dec 2022</licenseExpiryDate>
+			<permanencyDate>Thu, 22 Feb 2001</permanencyDate>
+			<jobTitle>^Brand\sManager$</jobTitle>
+			<employementStatus>Full-Time Permanent</employementStatus>
+			<jobCategory>Officials and Managers</jobCategory>
+			<subUnit>^Development\sTeam$</subUnit>
+			<workShift>General</workShift>
+			<comments>No comments</comments>
+			<includeContractDetails>false</includeContractDetails>
+			<contractStartDate></contractStartDate>
+			<contractEndDate></contractEndDate>
 			<region>Region-1</region>
 			<fte>0.75</fte>
 			<temporartDepartment>Sub unit-3</temporartDepartment>

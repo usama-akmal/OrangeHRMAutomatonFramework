@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using OrangeHRMAutomatonFramework.Logger;
 using System.Security.Cryptography;
 using Microsoft.CodeAnalysis;
+using System.Text.RegularExpressions;
 
 namespace OrangeHRMAutomatonFramework
 {
@@ -91,6 +92,12 @@ namespace OrangeHRMAutomatonFramework
             Log.Info($"BasePage.Click called on Locator[{locator}] with Text[{text}]");
         }
 
+        public async Task Click(string locator, Regex text)
+        {
+            await FindLocator(locator).Filter(new LocatorFilterOptions() { HasTextRegex = text }).ClickAsync();
+            Log.Info($"BasePage.Click called on Locator[{locator}] with Text[{text}]");
+        }
+
         public async Task WaitForLoadState()
         {
             await this.page.WaitForLoadStateAsync();
@@ -125,6 +132,18 @@ namespace OrangeHRMAutomatonFramework
             });
             await fileChooser.SetFilesAsync(file);
             Log.Info($"BasePage.ChooseFile called on Locator[{locator}] with File[{file}]");
+        }
+
+        public async Task Check(string locator)
+        {
+            await FindLocator(locator).CheckAsync();
+            Log.Info("BasePage.Check called on Locator[{locator}]");
+        }
+
+        public async Task Uncheck(string locator)
+        {
+            await FindLocator(locator).UncheckAsync();
+            Log.Info("BasePage.Uncheck called on Locator[{locator}]");
         }
     }
 }
