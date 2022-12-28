@@ -13,7 +13,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
     internal class EmployeeManagementPage: BasePage
     {
         private string employeeManagementPath = "/client/#/pim/employees";
-        private string savedSuccessUrl = "/client/#/pim/employees/[empId]/personal_details";
+        private string savedSuccessUrl = "/client/#/pim/employees/[0-9]+/personal_details";
 
         public async Task Open()
         {
@@ -76,12 +76,15 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await Click(EmployeeManagementLocators.wizardTempDepartmentItemsInDropdown, employee.temporartDepartment);
             await Click(EmployeeManagementLocators.wizardSaveButton);
 
-            // await WaitForUrl(savedSuccessUrl.Replace("[empId]", empId));
-            await WaitForLoadState();
-            
+            await WaitForUrlUsingRegex(savedSuccessUrl);
+
+            Log.Pass("Wait for correct URL has been Passed");
+
             string title = await GetText(EmployeeManagementLocators.nameInNavbarAfterSave);
 
             Assert.AreEqual($"{employee.firstName} {employee.lastName}", title);
+
+            Log.Pass("Correct title is present", await TakeScreenshot(Log.reportsDirectory));
 
             Log.Info("EmployeeManagrmentPage.AddEmpoyee completed", await TakeScreenshot(Log.reportsDirectory));
         }

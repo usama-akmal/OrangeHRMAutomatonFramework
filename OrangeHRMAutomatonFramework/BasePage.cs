@@ -60,6 +60,12 @@ namespace OrangeHRMAutomatonFramework
             Log.Info($"BasePage.WaitForUrl called Endpoint[{webBaseUrl + path}]");
         }
 
+        public async Task WaitForUrlUsingRegex(string path)
+        {
+            await this.page.WaitForURLAsync(new Regex(webBaseUrl + path));
+            Log.Info($"BasePage.WaitForUrlUsingRegex called Endpoint[{webBaseUrl + path}]");
+        }
+
         private ILocator FindLocator(string locator)
         {
             Log.Info($"BasePage.FindLocator called with Locator[{locator}]");

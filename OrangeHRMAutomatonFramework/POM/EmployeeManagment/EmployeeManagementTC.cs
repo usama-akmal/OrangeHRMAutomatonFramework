@@ -28,6 +28,8 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
             await emPage.AddEmpoyee(new EmployeeDTO(TestContext));
 
             await loginPage.PerformLogout();
+
+            Log.Pass("Test Passed");
         }
     }
 }
