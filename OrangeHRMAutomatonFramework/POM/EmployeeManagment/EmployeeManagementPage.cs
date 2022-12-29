@@ -17,7 +17,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
 
         public async Task Open()
         {
-            Log.Info("EmployeeManagrmentPage.Open started", await TakeScreenshot(Log.reportsDirectory));
+            Log.Info("EmployeeManagrmentPage.Open started");
             await GoToUrl(employeeManagementPath);
             await WaitForUrl(employeeManagementPath);
             Log.Info("EmployeeManagrmentPage.Open completed", await TakeScreenshot(Log.reportsDirectory));

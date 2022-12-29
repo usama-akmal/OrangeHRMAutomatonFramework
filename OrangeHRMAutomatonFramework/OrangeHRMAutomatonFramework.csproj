@@ -464,6 +464,7 @@
     <Compile Include="POM\HRManagement\HRManagementLocators.cs" />
     <Compile Include="POM\HRManagement\HRManagementPage.cs" />
     <Compile Include="POM\HRManagement\HRManagemnetTC.cs" />
+    <Compile Include="POM\HRManagement\UserDTO.cs" />
     <Compile Include="POM\Login\LoginLocators.cs" />
     <Compile Include="POM\Login\LoginPage.cs" />
     <Compile Include="POM\Login\LoginTC.cs" />
