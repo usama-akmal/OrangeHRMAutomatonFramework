@@ -13,7 +13,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
     public class EmployeeManagementTC: BaseTC
     {
 
-        [Priority(1)]
+        [Priority(2)]
         [TestCategory("EmployeeManagement"), TestCategory("AddEmployee")]
         [OHRMTestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Data.xml", "AddEmployee", DataAccessMethod.Sequential)]

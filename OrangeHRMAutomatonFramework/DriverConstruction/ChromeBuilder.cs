@@ -1,9 +1,5 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OrangeHRMAutomatonFramework.DriverCostruction
@@ -25,13 +21,19 @@ namespace OrangeHRMAutomatonFramework.DriverCostruction
             this.browser = await playwright.Chromium.LaunchAsync(this.options);
             this.context = await this.browser.NewContextAsync();
             this.page = await this.context.NewPageAsync();
+            var maximized = ConfigurationManager.AppSettings["Maximized"];
+            if (maximized == "true")
+            {
+                await this.page.SetViewportSizeAsync(1920, 1080);
+            }
+            
         }
 
         public void CreateBrowserLaunchOptions()
         {
-            options = new BrowserTypeLaunchOptions() { Headless = false, Timeout = 60000};
+            options = new BrowserTypeLaunchOptions() { Headless = false, Timeout = 120000 };
             var headless = ConfigurationManager.AppSettings["Headless"];
-            if(headless == "true")
+            if (headless == "true")
             {
                 options.Headless = true;
             }

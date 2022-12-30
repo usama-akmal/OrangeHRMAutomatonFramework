@@ -27,6 +27,7 @@ namespace OrangeHRMAutomatonFramework.POM.EmployeeManagment
         {
             Log.Info("EmployeeManagrmentPage.AddEmpoyee started", await TakeScreenshot(Log.reportsDirectory));
             await Open();
+            await CloseTrialToast();
             await Click(EmployeeManagementLocators.addEmployeeButton);
             await ChooseFile(EmployeeManagementLocators.popupImage, employee.image);
             await Write(EmployeeManagementLocators.popupFirstNameInput, employee.firstName);

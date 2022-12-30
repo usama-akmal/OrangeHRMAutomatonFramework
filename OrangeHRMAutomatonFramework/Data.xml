@@ -52,7 +52,7 @@
 			<successUrl>/client/#/pim/employees</successUrl>
 			<successTitle>Employee Management</successTitle>
 		</OpenHRManagment>
-		<!--<AddEmployee>
+		<AddEmployee>
 			<username>Admin</username>
 			<password>@2MHu2SdlF</password>
 			<image>D:\image.jpg</image>
@@ -80,7 +80,7 @@
 			<region>Region-1</region>
 			<fte>0.75</fte>
 			<temporartDepartment>Sub unit-3</temporartDepartment>
-		</AddEmployee>-->
+		</AddEmployee>
 		<AddEmployee>
 			<username>Admin</username>
 			<password>@2MHu2SdlF</password>
@@ -110,5 +110,17 @@
 			<fte>0.75</fte>
 			<temporartDepartment>Sub unit-3</temporartDepartment>
 		</AddEmployee>
+		<AddUser>
+			<portalUsername>Admin</portalUsername>
+			<portalPassword>@2MHu2SdlF</portalPassword>
+			<name>1061</name>
+			<username>User-1061</username>
+			<essRole>Default ESS</essRole>
+			<supervisorRole>Default Supervisor</supervisorRole>
+			<adminRole>main</adminRole>
+			<status>true</status>
+			<password>Admin@123#123</password>
+			<regions>Australia,Germany</regions>
+		</AddUser>
 	</Execution>
 </Automation>

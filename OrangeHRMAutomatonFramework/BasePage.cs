@@ -14,13 +14,14 @@ using OrangeHRMAutomatonFramework.Logger;
 using System.Security.Cryptography;
 using Microsoft.CodeAnalysis;
 using System.Text.RegularExpressions;
+using OrangeHRMAutomatonFramework.POM.EmployeeManagment;
 
 namespace OrangeHRMAutomatonFramework
 {
     internal class BasePage
     {
         protected string logoutLocator = "#navbar-logout > a > span";
-
+        protected string trialToastMessageCloseButton = "#toast-container > div > button";
         protected string webBaseUrl = ConfigurationManager.AppSettings["WebBaseUrl"];
         
 
@@ -92,6 +93,12 @@ namespace OrangeHRMAutomatonFramework
             Log.Info($"BasePage.Click called on Locator[{locator}]");
         }
 
+        public async Task ClickUsingQuerySelector(string locator)
+        {
+            var node = await this.page.QuerySelectorAsync(locator);
+            await node.EvaluateAsync("node => node.click()");
+        }
+
         public async Task Click(string locator, string text)
         {
             await FindLocator(locator).Filter(new LocatorFilterOptions() { HasText = text }).ClickAsync();
@@ -102,6 +109,11 @@ namespace OrangeHRMAutomatonFramework
         {
             await FindLocator(locator).Filter(new LocatorFilterOptions() { HasTextRegex = text }).ClickAsync();
             Log.Info($"BasePage.Click called on Locator[{locator}] with Text[{text}]");
+        }
+
+        public async Task Focus(string locator)
+        {
+            await FindLocator(locator).FocusAsync();
         }
 
         public async Task WaitForLoadState()
@@ -150,6 +162,26 @@ namespace OrangeHRMAutomatonFramework
         {
             await FindLocator(locator).UncheckAsync(new LocatorUncheckOptions() { Force = forced });
             Log.Info("BasePage.Uncheck called on Locator[{locator}]");
+        }
+
+        public async Task Type(string locator, string text)
+        {
+            await FindLocator(locator).TypeAsync(text);
+        }
+
+        public async Task Type(string locator, string text, float delay)
+        {
+            await FindLocator(locator).TypeAsync(text, new LocatorTypeOptions() { Delay = delay });
+        }
+
+        public async Task CloseTrialToast()
+        {
+            await Click(trialToastMessageCloseButton);    
+        }
+
+        public async Task WaitForSelector(string locator)
+        {
+            await this.page.WaitForSelectorAsync(locator);
         }
     }
 }

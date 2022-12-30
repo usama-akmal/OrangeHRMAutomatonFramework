@@ -8,15 +8,16 @@ namespace OrangeHRMAutomatonFramework.POM.HRManagement
 {
     public class HRManagementLocators
     {
+        public static string tableUsernameColumn = "#systemUserDiv > crud-panel > div > div > list > table > thead > tr > th:nth-child(2)";
         public static string addUserButton = "#systemUserDiv > div > a > i";
         public static string employeeNameInput = "#selectedEmployee_value";
         public static string usernameInput = "#user_name";
         public static string essRoleDropdown = "[data-id='essrole']";
-        public static string essRoleItemsInDropdown = "#bs-select-10 > ul > li > a > span";
+        public static string essRoleItemsInDropdown = "#bs-select-1 > ul > li > a > span";
         public static string supvisorRoleDropdown = "[data-id='supervisorrole']";
-        public static string supvisorRoleItemsInDropdown = "#bs-select-11 > ul > li > a > span";
+        public static string supvisorRoleItemsInDropdown = "#bs-select-2 > ul > li > a > span";
         public static string adminRoleDropdown = "[data-id='adminrole']";
-        public static string adminRoleItemsInDropdown = "#bs-select-12 > ul > li > a > span";
+        public static string adminRoleItemsInDropdown = "#bs-select-3 > ul > li > a > span";
         public static string enabledRadioButton = "#status_1";
         public static string disabledRadioButton = "#status_0";
         public static string passwordInput = "#password";
