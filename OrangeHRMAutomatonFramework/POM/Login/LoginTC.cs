@@ -13,6 +13,7 @@ namespace OrangeHRMAutomatonFramework.POM.Login
     [TestClass]
     public class LoginTC : BaseTC
     {
+        [Priority(0)]
         [TestCategory("Login"), TestCategory("ValidCredentials")]
         [OHRMTestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Data.xml", "LoginWithValidCredentials", DataAccessMethod.Sequential)]
@@ -41,6 +42,7 @@ namespace OrangeHRMAutomatonFramework.POM.Login
             Log.Pass("Test passed");
         }
 
+        [Priority(0)]
         [TestCategory("Login"), TestCategory("InvalidCredentials")]
         [OHRMTestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Data.xml", "LoginWithInvalidCredentials", DataAccessMethod.Sequential)]
@@ -66,7 +68,8 @@ namespace OrangeHRMAutomatonFramework.POM.Login
             Log.Pass("Test passed");
         }
 
-       
+
+        [Priority(0)]
         [TestCategory("Login"), TestCategory("EmptyCredentials")]
         [OHRMTestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Data.xml", "LoginWithEmptyCredentials", DataAccessMethod.Sequential)]

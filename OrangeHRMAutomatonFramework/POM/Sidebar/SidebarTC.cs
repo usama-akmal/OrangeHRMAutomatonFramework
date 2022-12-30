@@ -12,6 +12,7 @@ namespace OrangeHRMAutomatonFramework.POM.Sidebar
     [TestClass]
     public class SidebarTC: BaseTC
     {
+        [Priority(1)]
         [TestCategory("Sidebar"), TestCategory("HRManagment")]
         [OHRMTestMethod]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "Data.xml", "OpenHRManagment", DataAccessMethod.Sequential)]

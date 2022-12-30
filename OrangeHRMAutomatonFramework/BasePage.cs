@@ -49,7 +49,7 @@ namespace OrangeHRMAutomatonFramework
 
         public string GetUrl()
         {
-            var url = this.page.Url.Substring(42);
+            var url = this.page.Url.Substring(48);
             Log.Info($"BasePage.GetUrl called and current URL[{url}]");
             return url;
         }
