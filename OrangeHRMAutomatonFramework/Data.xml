@@ -3,7 +3,7 @@
 	<Execution>			
 		<LoginWithValidCredentials>
 			<username>Admin</username>
-			<password>TP@mR0I1yd</password>
+			<password>@2MHu2SdlF</password>
 			<successUrl>/client/#/dashboard</successUrl>
 			<successTitle>Employee Management</successTitle>
 		</LoginWithValidCredentials>
@@ -42,19 +42,19 @@
 		</LoginWithInvalidCredentials>
 		<OpenHRManagment>
 			<username>Admin</username>
-			<password>TP@mR0I1yd</password>
+			<password>@2MHu2SdlF</password>
 			<successUrl>/client/#/admin/systemUsers</successUrl>
 			<successTitle>HR Administration</successTitle>
 		</OpenHRManagment>
 		<OpenHRManagment>
 			<username>Admin</username>
-			<password>TP@mR0I1yd</password>
+			<password>@2MHu2SdlF</password>
 			<successUrl>/client/#/pim/employees</successUrl>
 			<successTitle>Employee Management</successTitle>
 		</OpenHRManagment>
 		<!--<AddEmployee>
 			<username>Admin</username>
-			<password>TP@mR0I1yd</password>
+			<password>@2MHu2SdlF</password>
 			<image>D:\image.jpg</image>
 			<firstName>Salman</firstName>
 			<middleName>Muhammad</middleName>
@@ -83,7 +83,7 @@
 		</AddEmployee>-->
 		<AddEmployee>
 			<username>Admin</username>
-			<password>TP@mR0I1yd</password>
+			<password>@2MHu2SdlF</password>
 			<image>D:\image.jpg</image>
 			<firstName>Usama</firstName>
 			<middleName>Akmal</middleName>
