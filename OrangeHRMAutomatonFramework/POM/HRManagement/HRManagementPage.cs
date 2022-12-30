@@ -41,7 +41,7 @@ namespace OrangeHRMAutomatonFramework.POM.HRManagement
             await Type(HRManagementLocators.passwordInput, user.password, 100);
             await Type(HRManagementLocators.confirmPasswordInput, user.password, 100);
             Log.Info("HRManagementPage.AddEmpoyee user details added", await TakeScreenshot(Log.reportsDirectory));
-            await Click("//*[@id=\"modal-save-button\"]");
+            await Click(HRManagementLocators.saveButton);
             string toastMessage = await GetText(HRManagementLocators.successToastMessage);
             Assert.AreEqual("Successfully Saved", toastMessage);
             Log.Pass("Add User Pass");
