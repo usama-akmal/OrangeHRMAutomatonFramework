@@ -27,6 +27,7 @@ namespace OrangeHRMAutomatonFramework.POM.HRManagement
             Log.Info("HRManagementPage.AddEmpoyee started", await TakeScreenshot(Log.reportsDirectory));
             await Open();
             await CloseTrialToast();
+            Thread.Sleep(30000);
             await WaitForSelector(HRManagementLocators.tableUsernameColumn);
             await Click(HRManagementLocators.addUserButton);
             await Type(HRManagementLocators.employeeNameInput, user.name, 100);
@@ -45,12 +46,6 @@ namespace OrangeHRMAutomatonFramework.POM.HRManagement
             string toastMessage = await GetText(HRManagementLocators.successToastMessage);
             Assert.AreEqual("Successfully Saved", toastMessage);
             Log.Pass("Add User Pass");
-            await Uncheck(HRManagementLocators.allRegions);
-            foreach (var region in user.regions)
-            {
-                await Click(HRManagementLocators.regionDropdown);
-                await Click(HRManagementLocators.regionItemsInDropdown, region);
-            }
             Log.Info("HRManagementPage.AddEmpoyee user regions set", await TakeScreenshot(Log.reportsDirectory));
             await Click(HRManagementLocators.saveButton);
             toastMessage = await GetText(HRManagementLocators.successToastMessage);

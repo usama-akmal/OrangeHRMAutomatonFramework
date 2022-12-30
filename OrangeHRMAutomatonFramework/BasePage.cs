@@ -176,7 +176,15 @@ namespace OrangeHRMAutomatonFramework
 
         public async Task CloseTrialToast()
         {
-            await Click(trialToastMessageCloseButton);    
+            try
+            {
+                await Click(trialToastMessageCloseButton);
+            }
+            catch (Exception e)
+            {
+
+            }
+                
         }
 
         public async Task WaitForSelector(string locator)
